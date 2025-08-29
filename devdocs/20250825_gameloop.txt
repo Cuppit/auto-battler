@@ -1,0 +1,10 @@
+-- 12:12 --
+
+GAME LOOP DESIGN
+
+-ENTER MATCH
+
+-player is presented with:
+	-starting units
+	-their side of the board (not darkened)
+	

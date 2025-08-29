@@ -1,0 +1,38 @@
+*** WHAT IS THIS? ***
+
+This is an attempt at creating a top-down 2D auto-battler in the spirit
+of auto-chess games like Mechabellum.
+
+INITAL SETUP: a field split evenly into two sides, each round each player
+picks some units to add to their army and where they are on the field.  Then
+the battle starts.  Last man standing wins the round, and the loser loses
+points relative to the strength of the remaining army of their opponent.
+
+TODO
+
+-design unique units
+-develop:
+	-scene structure
+	-art assets
+	-code
+	
+HOW TARGET SELECTION WORKS
+There's no getting around iterating over every enemy every game cycle, it seems.
+
+conceive game process:
+	-initial round is initiated
+	-enemy army is spawned
+	-player chooses pieces to drop
+	-battle commences
+	-results are tallied up
+	-next round starts
+	-game ends when one player's points are reduced to zero
+	
+	WHAT KIND OF UNITS ARE THERE?
+	
+		-the pewpewer: simple blob that shoots pellets at a rate of one per second, at a range of,
+		 I dunno, 200 pixels?
+		
+		EVERY GAME CYCLE:
+			unit attempts to move towards closest enemy
+			if enemy is in range, fire

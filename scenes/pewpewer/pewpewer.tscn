@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://b077w154d8vqe"]
+
+[ext_resource type="Texture2D" uid="uid://76et61ridvvc" path="res://assets/sprites/pewerbody.png" id="1_b1p7u"]
+[ext_resource type="Script" uid="uid://42j18rojwcuj" path="res://scenes/pewpewer/pewpewer.gd" id="1_gyled"]
+[ext_resource type="Texture2D" uid="uid://dvjxgoq5cyniq" path="res://assets/sprites/pewereye.png" id="2_gyled"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_trl7k"]
+radius = 38.2753
+
+[node name="Pewpewer" type="CharacterBody2D"]
+script = ExtResource("1_gyled")
+
+[node name="BodySprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_b1p7u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_trl7k")
+
+[node name="LeftEye" type="Node2D" parent="."]
+position = Vector2(32, -16)
+metadata/_edit_group_ = true
+
+[node name="LeftEyeSprite" type="Sprite2D" parent="LeftEye"]
+texture = ExtResource("2_gyled")
+
+[node name="RightEye" type="Node2D" parent="."]
+position = Vector2(32, 16)
+metadata/_edit_group_ = true
+
+[node name="RightEyeSprite" type="Sprite2D" parent="RightEye"]
+texture = ExtResource("2_gyled")
+
+[node name="FocusPoint" type="Marker2D" parent="."]
+position = Vector2(0, -64)
+
+[node name="AttackCooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="ClickableArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ClickableArea"]
+shape = SubResource("CircleShape2D_trl7k")
+
+[connection signal="input_event" from="ClickableArea" to="." method="_on_clickable_area_input_event"]

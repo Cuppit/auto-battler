@@ -1,0 +1,46 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="auto-battler-"
+config/description="Autobattler loosely inspired by other \"auto-chess\" games."
+config/version="0.0.1"
+run/main_scene="uid://dq3udkwiaffbm"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://supporting_scripts/global.gd"
+
+[global_group]
+
+Team1="Describes units on team 1"
+Team2="Units part of team 2"
+Team1Projectile="indicates bullet was fired by a member of team 1"
+Team2Projectile="Indicates bullet was fired by a member of Team2"
+
+[gui]
+
+theme/custom="uid://b3kq74llqlv3x"
+
+[input]
+
+left_click={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

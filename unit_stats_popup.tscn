@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=3 uid="uid://devmmqo6n27j6"]
+
+[ext_resource type="Texture2D" uid="uid://bu5ydcndc1phq" path="res://icon.svg" id="1_w0k4f"]
+
+[node name="UnitStatsPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+offset_right = 176.0
+offset_bottom = 256.0
+color = Color(0.372549, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 158.0
+
+[node name="UnitName" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "UnitName"
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+tab_alignment = 1
+current_tab = 0
+
+[node name="Stats" type="VBoxContainer" parent="ColorRect/VBoxContainer/TabContainer"]
+layout_mode = 2
+alignment = 1
+metadata/_tab_index = 0
+
+[node name="lblRoleDescription" type="Label" parent="ColorRect/VBoxContainer/TabContainer/Stats"]
+layout_mode = 2
+text = "Role Description"
+horizontal_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="ColorRect/VBoxContainer/TabContainer/Stats"]
+layout_mode = 2
+texture = ExtResource("1_w0k4f")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer/TabContainer/Stats"]
+layout_mode = 2
+text = "MaxHP: 10"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ColorRect/VBoxContainer/TabContainer/Stats"]
+layout_mode = 2
+text = "Range: 5"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="ColorRect/VBoxContainer/TabContainer/Stats"]
+layout_mode = 2
+text = "Attack Rate: 1.0"
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="ColorRect/VBoxContainer/TabContainer/Stats"]
+layout_mode = 2
+text = "Damage: 2"
+fit_content = true
+
+[node name="Description" type="VBoxContainer" parent="ColorRect/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/TabContainer/Description"]
+layout_mode = 2
+texture = ExtResource("1_w0k4f")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer/TabContainer/Description"]
+layout_mode = 2
+text = "More detailed description of the unit and it's roles."
+fit_content = true
