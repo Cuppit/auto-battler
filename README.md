@@ -1,2 +1,2 @@
-# auto-battler
-An experiment at making a generic auto-battler game
+# Auto-Battler
+## This is a simple experiment at making an autobattler game.
