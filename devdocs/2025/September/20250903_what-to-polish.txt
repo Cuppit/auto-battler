@@ -1,0 +1,12 @@
+-- 12:16 CDT --
+
+POLISHING:
+	-Unit details goes in corner of screen
+	-Make transparent? Conditionally if there's something to see behind it?
+
+
+When clicking on the screen to drag, the camera takes note of it's position
+relative to the mouse.  While holding, the camera wants to tend toward this 
+relative distance from where the mouse is.
+	-draw vector
+	

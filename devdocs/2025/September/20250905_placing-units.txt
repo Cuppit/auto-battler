@@ -1,0 +1,48 @@
+--18:47 CDT--
+
+A system for placing units needs to be realized.  
+
+-player selects unit to place from unit purchase menu
+-unit is "stuck" to mouse pointer
+-player moves mouse pointer over possible areas to place
+ unit
+
+-The unit "snaps" to a grid of possible locations, 
+ with a green layer under it (tile map layer?)
+
+*** NEW SCENE REQUIRED: SQUAD ***
+
+WHAT IS A SQUAD?
+
+A collection of one or more of one type of unit, arranged such that they fit 
+inside of a rectangle which corresponds to tiles on the battle map.  
+
+*** SYSTEM NEEDED ***
+	-A definition of the space on the battle map the player has access to 
+	 placing units on; a way of fitting squads onto the map
+	
+BATTLE MAP DEFINITION
+	A 70 x 39 arena filled with 16x16 pxl tiles
+	
+	EACH PLAYER GETS A 35x39 PLOT TO PLACE SQUADS ON
+	
+	Q: HOW TO DEFINE PLOT IN SCENE?
+	A: Define rectangle coords for each side of the field in the BattleMap 
+	   script.
+
+WHAT'S NEEDED IS A ZONE MANAGER
+...
+
+a poorly described problem yielded unusable "zone" concept. 
+
+--------------
+
+WHAT GOT ACCOMPLISHED:
+	-Squad concept defined
+	-Will try scene inheritance to make new types of squads
+	
+	TODO:
+		-place newly spawned squads in appropriate spots on map
+		-design algorithm to identify open spots when adding 
+		 squads
+		-

@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://cm7axvgwi0q60"]
+[gd_scene load_steps=3 format=3 uid="uid://cm7axvgwi0q60"]
+
+[ext_resource type="Script" uid="uid://ce7wf0kda8mdp" path="res://player_camera.gd" id="1_agiyq"]
+[ext_resource type="PackedScene" uid="uid://devmmqo6n27j6" path="res://unit_stats_popup.tscn" id="2_1l5io"]
 
 [node name="PlayerCamera" type="Camera2D"]
+script = ExtResource("1_agiyq")
+
+[node name="UnitStatsPopup" parent="." instance=ExtResource("2_1l5io")]
+visible = false

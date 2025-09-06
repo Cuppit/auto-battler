@@ -1,5 +1,12 @@
 extends Node
 
+const BASE_MAP_WIDTH = 1152
+const BASE_MAP_HEIGHT = 648
+
+## Flag units check in _process() method to determine if they should
+## be acting or not
+var battle_is_active = false
+
 var pewpewer = preload("res://scenes/pewpewer/pewpewer.tscn")
 
 var rng = RandomNumberGenerator.new()

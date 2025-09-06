@@ -1,7 +1,11 @@
 extends CharacterBody2D
 
+signal clicked
+
 @onready var body_sprite = $BodySprite
 @onready var attack_cooldown = $AttackCooldown
+
+var unit_name = "Pewpewer"
 
 var red_team_skin = preload("res://assets/sprites/pewerbody.png")
 var blue_team_skin = preload("res://assets/sprites/pewerbodyblue.png")
@@ -29,23 +33,24 @@ func _ready():
 	pass
 
 func _process(delta):
-	if health <= 0:
-		## Character dies when HP is 0
-		queue_free()
-	if not initialized:
-		initialize()
-	target_position = get_global_mouse_position()
-	acquire_target()
-	var direction = (target_position - position).normalized()
-	var forward_direction = Vector2(cos(rotation), sin(rotation)).normalized()
-	#rotation += PI/256
-	rotation = position.angle_to_point(target_position)
-	if position.distance_to(target_position) > attack_range:
-		velocity.x = forward_direction.x*speed
-		velocity.y = forward_direction.y*speed
-		move_and_slide()
-	else:
-		shoot(target_position)
+	if Global.battle_is_active:
+		if health <= 0:
+			## Character dies when HP is 0
+			queue_free()
+		if not initialized:
+			initialize()
+		target_position = get_global_mouse_position()
+		acquire_target()
+		var direction = (target_position - position).normalized()
+		var forward_direction = Vector2(cos(rotation), sin(rotation)).normalized()
+		#rotation += PI/256
+		rotation = position.angle_to_point(target_position)
+		if position.distance_to(target_position) > attack_range:
+			velocity.x = forward_direction.x*speed
+			velocity.y = forward_direction.y*speed
+			move_and_slide()
+		else:
+			shoot(target_position)
 
 
 func shoot(target_position: Vector2):	
@@ -130,4 +135,5 @@ func get_sprite() -> Sprite2D:
 
 func _on_clickable_area_input_event(viewport, event, shape_idx):
 	if (event.is_action_pressed("left_click")):
+		clicked.emit(self)
 		print("LEFT CLICK PRESSED!")

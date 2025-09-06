@@ -1,0 +1,136 @@
+--06:37 CDT--
+
+TODO REMINDER FROM YESTERDAY:
+	
+		-place newly spawned squads in appropriate spots on map
+		-design algorithm to identify open spots when adding 
+		 squads
+		
+		
+-- HOW TO ACCOMPLISH --
+		
+Suppose you have a 7x7 zone in which squads can be
+placed: 
+
+X X X X X X X 
+X X X X X X X
+X X X X X X X 
+X X X X X X X
+X X X X X X X
+X X X X X X X
+X X X X X X X
+	
+1st squad has a 3x2 area:
+-- 3x2 area 1 --
+
+A A A
+A A A
+
+
+2nd squad has a 2x1 area:
+-- 2x1 area 2 --
+B B
+
+
+3rd squad has a 4x3 area:
+-- 4x3 area 3 --
+
+C C C C
+C C C C
+C C C C
+
+
+
+
+So how to place squads in the zone?  Time to write some 
+pseudocode:
+
+STEP 1 : CENTER RECTANGLE INSIDE OF ZONE
+
+	0,0 of rectangle = top-left coordinates.  This needs to be positioned such that it is as centered
+	as possible in the zone.
+
+	-Put top-left corner into zone such that it is as centered as possible
+	-ZONE DIMS: 7x7 
+	-RECTANGLE DIMS: 3x2
+	-CENTER POINT OF ZONE: 3,3
+	
+	var zone_center_h =  zonedims.x/2 [value: 3]
+	var zone_center_v = zonedims.y/2 [value: 3]
+
+	var rect_mid_h = MID-POINT OF HORIZONTAL DIM OF RECTANGLE: floor(rect_x/2)  [value: 1]
+	var rect_mid_v = MID-POINT OF VERTICAL DIM OF RECTANGLE: floor(rect_y/2)  [value: 1]
+	
+	-WHERE TO (first attempt to) DRAW RECTANGLE?
+	x = zone_center_h - rect_mid_h [value: 2]
+	y = zone_center_v - rect_mid_v [value: 2]
+	
+SO!  THIS is the FIRST spot the game will attempt to place the squad!  
+	
+STEP 1: PLACE SQUAD no. A
+	
+pretty straightforward, the squad ends up as such:
+X X X X X X X 
+X X X X X X X
+X X A A A X X 
+X X A A A X X
+X X X X X X X
+X X X X X X X
+X X X X X X X
+
+And so, it has ended up (approximately) in the center.
+
+STEP 2:  PLACE SQUAD no. B
+
+Trying to do the same thing results in:
+X X X X X X X 
+X X X X X X X
+X X B B A X X 
+X X A A A X X
+X X X X X X X
+X X X X X X X
+X X X X X X X
+
+Obviously it can't fit there, so something I'm going to call a "spiral search"
+needs to happen.  It's called "spiral search" because the squad searches for
+a valid spot in a "spiral" pattern, starting from the original coordinate 
+it tried to land at, and gradually checking other coordinates by turning 
+outwards in a spiral direction.
+
+STEP 1: check first coord to the right (3,2):
+X X X X X X X 
+X X X X X X X
+X X A B B X X 
+X X A A A X X
+X X X X X X X
+X X X X X X X
+X X X X X X X
+error: still overlaps with A.  
+
+STEP 2: check 1 up from current position (3,1):
+X X X X X X X 
+X X X B B X X
+X X A A A X X 
+X X A A A X X
+X X X X X X X
+X X X X X X X
+X X X X X X X
+SUCCESS: B is successfully placed.  
+
+Finally, when repeating this process, after 7 iterations of the search,
+squad C lands in this position:
+	
+	STEP 2: check 1 up from current position (3,1):
+X X X X X X X 
+X X X B B X X
+X X A A A X X 
+X X A A A X X
+X C C C C X X
+X C C C C X X
+X C C C C X X
+
+SLIGHT PROBELM WITH THIS METHOD:  If it runs against a corner
+
+-- 07:22 CDT --
+break time, when come back:
+	-Determine method of implementation in battle_map.tscn

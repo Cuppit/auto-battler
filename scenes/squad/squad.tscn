@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=4 uid="uid://dfh3804gtdf3c"]
+
+[ext_resource type="Script" uid="uid://c7kphcy4qm4lu" path="res://scenes/squad/squad.gd" id="1_1swxx"]
+[ext_resource type="TileSet" uid="uid://cxwb7xslblqqh" path="res://resources/floors_and_walls.tres" id="2_tw0nb"]
+[ext_resource type="PackedScene" uid="uid://b077w154d8vqe" path="res://scenes/pewpewer/pewpewer.tscn" id="3_uny4s"]
+
+[node name="Squad" type="Node2D"]
+script = ExtResource("1_1swxx")
+
+[node name="SquadZoneVisualizer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAABAAAAAAAIAAcAAAABAAEAAAAIAAcAAAAAAAEAAAAIAAcAAAAAAAAAAAAIAAcAAAACAAAAAAAIAAcAAAACAAEAAAAIAAcAAAACAAIAAAAIAAcAAAABAAIAAAAIAAcAAAAAAAIAAAAIAAcAAAA=")
+tile_set = ExtResource("2_tw0nb")
+
+[node name="Pewpewer" parent="." instance=ExtResource("3_uny4s")]
+position = Vector2(24, 24)

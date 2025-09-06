@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=4 uid="uid://b8mepppk7h0sm"]
+
+[ext_resource type="PackedScene" uid="uid://dfh3804gtdf3c" path="res://scenes/squad/squad.tscn" id="1_ny7p7"]
+[ext_resource type="PackedScene" uid="uid://b077w154d8vqe" path="res://scenes/pewpewer/pewpewer.tscn" id="2_ko0fl"]
+
+[node name="PewpewerSquad" instance=ExtResource("1_ny7p7")]
+squad_zone_height = 6
+
+[node name="SquadZoneVisualizer" parent="." index="0"]
+tile_map_data = PackedByteArray("AAABAAAAAAAIAAcAAAABAAEAAAAIAAcAAAAAAAEAAAAIAAcAAAAAAAAAAAAIAAcAAAACAAAAAAAIAAcAAAACAAEAAAAIAAcAAAACAAIAAAAIAAcAAAABAAIAAAAIAAcAAAAAAAIAAAAIAAcAAAAAAAMAAAAIAAcAAAABAAMAAAAIAAcAAAACAAMAAAAIAAcAAAACAAQAAAAIAAcAAAABAAQAAAAIAAcAAAAAAAQAAAAIAAcAAAAAAAUAAAAIAAcAAAABAAUAAAAIAAcAAAACAAUAAAAIAAcAAAA=")
+
+[node name="Pewpewer2" parent="." index="2" instance=ExtResource("2_ko0fl")]
+position = Vector2(24, 72)
