@@ -3,6 +3,12 @@ extends Node
 const BASE_MAP_WIDTH = 1152
 const BASE_MAP_HEIGHT = 648
 
+## The tiles this game uses are 16x16 pixels, so actual/graphical positions
+## of units during placement use this when figuring out "true" location
+## on the game map
+const CELL_PX_SIZE=16
+
+
 ## Flag units check in _process() method to determine if they should
 ## be acting or not
 var battle_is_active = false

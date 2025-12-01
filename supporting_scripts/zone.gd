@@ -1,6 +1,14 @@
 class_name Zone
 extends Resource
 
+## The zones will be the data representation of the maps, as well as the 
+## squad spaces.  The tileset used in this game has 16x16 pixel cells.  So,
+## CELL_PX_SIZE will be used when calculating graphical representations
+## later.
+
+
+const CELL_PX_SIZE=16
+
 @export var name: String
 @export var top_left: Vector2i
 @export var bottom_right: Vector2i

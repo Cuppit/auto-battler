@@ -1,0 +1,42 @@
+-- 11:30 CDT --
+
+Have to implement what was thought through yesterday now.
+
+Q: WHAT SCENE IS PERFORMING THE LOGIC?
+A: THE BATTLE MAP SCENE IS PERFORMING THE LOGIC
+
+...
+
+start from the beginning
+
+-player selects squad
+
+...
+
+So the spiral algorithm I implemented accidentally became an infinite 
+circle due to my oversight.  Thinking about spiral process
+
+X X X X X X X
+X X X X X X X
+X X X X X X X
+X X X a X X X
+X X X X X X X
+X X X X X X X
+X X X X X X X
+
+
+X X X X X X X
+X X X X X X X
+X X X X X X X
+X X X a X X X
+X X X a X X X
+X X X X X X X
+X X X X X X X
+
+X X X X X X X
+X a a a a a X
+X X a a a a X
+X X a a a a X
+X X a a a a X
+X X a a a a X
+X X X X X X X

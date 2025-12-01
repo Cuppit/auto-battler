@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="auto-battler-"
+config/name="auto-battler"
 config/description="Autobattler loosely inspired by other \"auto-chess\" games."
 config/version="0.0.1"
 run/main_scene="uid://dq3udkwiaffbm"

@@ -4,6 +4,7 @@ signal clicked
 
 @onready var body_sprite = $BodySprite
 @onready var attack_cooldown = $AttackCooldown
+@onready var lbl_pos_debug = $lblPosDebug
 
 var unit_name = "Pewpewer"
 
@@ -33,6 +34,8 @@ func _ready():
 	pass
 
 func _process(delta):
+	if lbl_pos_debug.visible:
+		lbl_pos_debug.text = str(position)
 	if Global.battle_is_active:
 		if health <= 0:
 			## Character dies when HP is 0

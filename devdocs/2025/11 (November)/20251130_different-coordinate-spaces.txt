@@ -1,0 +1,30 @@
+--20:32 CST--
+
+YESTERDAY'S PROBLEM SOLVED: The function I was modifying was never even called/used, causing a
+button which was supposed to instantiate a scene to not actually instantiate anything.
+
+TODAY'S PROBLEM: The "squads" are implemented as a generic container that holds an arrangement
+of units.  This container gets instantiated and placed on the map.  
+
+THIS CAUSES A PROBLEM WITH POSITION AND COORDINATES.  The actual units themselves have positions
+**relative to the 'squad' container they were instantiated in**, and not coordinates relative to the
+map they're in play on.
+
+PROPOSED SOLUTION: Write a function that makes the squad container "give" the units to the map, 
+adjusting position coordinates appropriately, then removing itself for the round.
+
+NOW THIS REQUIRES EXPLICIT, ROBUST TRACKING OF THE CURRENT BOARD STATE FOR EACH ROUND, AS WELL
+AS TRACKING WHICH ROUND IT IS.
+
+
+---NOTE FOR FUTURE WORK ON THIS PROJECT---
+TODO: FINISH FIXING 'ADD SQUAD' FUNCTIONALITY
+	-Algorithm is janky/broken, and doesn't search correctly for a spot to place a unit.  Fix that.
+	
+
+TODO: DESIGN MATCH SCENE
+	-Contains:
+		-Parameters (players, starting armies)
+		-Match tracking functionality (current round, player stats/resources, etc) 
+		-Battle Map
+		-

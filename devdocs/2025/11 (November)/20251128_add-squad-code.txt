@@ -1,0 +1,10 @@
+--22:17 CST--
+
+PROBLEM: Function for adding a new squad tries to use unit scene instances as key values
+(Godot doesn't support this).   
+
+SOLUTION: Rethink how to track squad placement on the board.  
+	NEW IMPLEMENTATION: the squad scene now has it's coordinates as a property
+	(...why didn't I just implement it that way in the first place?)
+	
+	

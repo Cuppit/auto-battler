@@ -42,4 +42,11 @@ one_shot = true
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ClickableArea"]
 shape = SubResource("CircleShape2D_trl7k")
 
+[node name="lblPosDebug" type="Label" parent="."]
+offset_left = -52.0
+offset_top = -70.0
+offset_right = 60.0
+offset_bottom = 51.0
+text = "POS: (0,0)"
+
 [connection signal="input_event" from="ClickableArea" to="." method="_on_clickable_area_input_event"]

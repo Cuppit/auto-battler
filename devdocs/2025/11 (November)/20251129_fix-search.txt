@@ -1,0 +1,7 @@
+--22:21 CST--
+PROBLEM: placement algorithm for squads isn't functioning as expected.
+
+DETAILS: Problem lies somewhere with the whlie loop; x value gets incremented,
+but y value never does.
+
+SOLUTION: Troubleshoot placement algorithm.
