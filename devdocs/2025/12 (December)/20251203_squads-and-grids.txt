@@ -1,0 +1,17 @@
+-- 23:17 CDT --
+
+[to view current progress, run "battle map" scene on it's own.']
+An hour of troubleshooting has passed.
+After troubleshooting why rectangle checks weren't working properly, some glaring issues with
+code implementation became apparent.  Squad spawning is still behaving erratically, mostly 
+due to a poorly designed squad placement determination algorithm.  It may be time to go back
+and establish a much more robust design if coordinates can't get handled properly.
+
+NEXT THING TO CHECK
+
+Find out if the erratic behavior is due to unit coordinates being relative to the "squad" object
+they're spawned in, rather than relative to the battle map scene itself.   
+
+OTHER REASONS TO DO IT
+Would like to refactor the project in a Godot Game Template that makes transitioning between scenes
+/ passing parameters between scenes easier.

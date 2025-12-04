@@ -97,6 +97,10 @@ func add_squad(toadd):
 	## Use this to calculate the starting point
 	var pt_x = mid_x - sq_mid_x
 	var pt_y = mid_y - sq_mid_y
+	
+	var scr_x = pt_x * Global.CELL_PX_SIZE
+	var scr_y = pt_y * Global.CELL_PX_SIZE
+	
 	print("Starting point in searching for place to put squad:",pt_x,",",pt_y)
 	var curr_rect 
 	## Iterate over every squad currently present on the team, and check if there's
@@ -118,10 +122,14 @@ func add_squad(toadd):
 		print("Total squads on this team: ",len(team1_squads))
 	
 	while pt_x>=0 and pt_x<team1_field.bottom_right.x and pt_y>=0 and pt_y<team1_field.bottom_right.y and still_searching:
-		curr_rect = Rect2i(Vector2i(pt_x,pt_y),Vector2i(pt_x+toadd.squad_zone_width,pt_y+toadd.squad_zone_height))
+		scr_x = pt_x * Global.CELL_PX_SIZE
+		scr_y = pt_y * Global.CELL_PX_SIZE
+		curr_rect = Rect2i(Vector2i(scr_x,scr_y),Vector2i(scr_x+toadd.squad_zone_width,scr_y+toadd.squad_zone_height))
+		
 		still_searching=false
 		for squad in team1_squads:
-			if curr_rect.intersects(squad.rect_at(Vector2i(pt_x,pt_y))):
+			var squad_rect = Rect2i(Vector2i(squad.position.x,squad.position.y),Vector2i(squad.position.x+squad.squad_zone_width,squad.position.y+squad.squad_zone_height))
+			if curr_rect.intersects(squad_rect):
 				still_searching=true
 				print("can't place at ",Vector2i(pt_x,pt_y),", finding different spot:")
 				## can't place here, find a different spot
@@ -139,13 +147,13 @@ func add_squad(toadd):
 					steps_to_turn+=1
 					inc_val=steps_to_turn
 					if curr_dir == CurrDirection.EAST:
-						CurrDirection.NORTH
+						curr_dir = CurrDirection.NORTH
 					elif curr_dir == CurrDirection.NORTH:
-						CurrDirection.WEST
+						curr_dir = CurrDirection.WEST
 					elif curr_dir == CurrDirection.WEST:
-						CurrDirection.SOUTH
+						curr_dir = CurrDirection.SOUTH
 					elif curr_dir == CurrDirection.SOUTH:
-						CurrDirection.EAST
+						curr_dir = CurrDirection.EAST
 					
 				break
 		if not still_searching:
